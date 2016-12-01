@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import Circle from './Circle';
+import TimelineElement from './TimelineElement';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <svg>
-        <Circle x={10} y={10} r={10} fill="transparent" stroke="#ccc" strokeWidth={2} />
-        <Circle x={90} y={90} r={10} fill="transparent" stroke="#ccc" strokeWidth={2} />
-        <Circle x={90} y={10} r={10} fill="transparent" stroke="#ccc" strokeWidth={2} />
-        <Circle x={10} y={90} r={10} fill="transparent" stroke="#ccc" strokeWidth={2} />
-      </svg>
+      <div>
+        <TimelineElement
+          title={'The Title'}
+          content={'Some lorem ipsum type stuff'} />
+        <TimelineElement
+          title={'Another Title'}
+          content={'Some more lorem ipsum type stuff'} />
+      </div>
     )
   }
 }
