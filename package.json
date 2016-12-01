@@ -1,0 +1,28 @@
+{
+  "name": "react-timeline",
+  "version": "1.0.0",
+  "description": "Vertical timeline widget for Apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airburst/react-timeline.git"
+  },
+  "keywords": [
+    "Timeline",
+    "React"
+  ],
+  "author": "Mark Fairhurst",
+  "license": "ISC",
+  "devDependencies": {
+    "react-scripts": "0.7.0"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
