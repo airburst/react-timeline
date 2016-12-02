@@ -27,3 +27,7 @@
 .timeline-content-body {
     margin-bottom: 0;
 }
+
+svg {
+    display: block;
+}

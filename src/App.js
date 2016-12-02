@@ -8,7 +8,10 @@ class App extends Component {
   render() {
     const timeline = data.map((d, i) => {
       return (
-        <TimelineElement key={i} title={d.title} content={d.body} />
+        <TimelineElement 
+          key={i} 
+          title={d.title} 
+          content={d.body} />
       )
     });
 

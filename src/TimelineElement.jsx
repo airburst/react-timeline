@@ -35,7 +35,6 @@ class TimelineElement extends Component {
 
     componentDidMount() {
         let { offsetHeight } = this.refs.timeline;
-        console.log(offsetHeight)
         this.setState({ height: offsetHeight })
     }
 
