@@ -7,6 +7,7 @@ class App extends Component {
 
   render() {
     const timeline = data.map((d, i) => {
+      let isLast = (i === data.length - 1);
       return (
         <TimelineElement 
           key={i}
@@ -14,7 +15,8 @@ class App extends Component {
           title={d.title} 
           content={d.body}
           graphicWidth={120}
-          lineLeft={100} />
+          lineLeft={104}
+          showBottomLine={!isLast} />
       )
     });
 

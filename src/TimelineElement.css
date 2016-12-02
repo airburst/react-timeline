@@ -23,6 +23,10 @@
     border: 1px solid #e2e2e2;
 }
 
+.timeline-element.hover .timeline-content {
+    border: 1px solid #4682B4;
+}
+
 .timeline-content-title {
     margin: 0;
 }
@@ -33,4 +37,8 @@
 
 svg {
     display: block;
+}
+
+.hover circle {
+    stroke-width: 0;
 }

@@ -65,9 +65,9 @@ class TimelineElement extends Component {
                             y={this.state.height / 2}
                             r={this.state.radius}
                             fill={this.state.fill} />
-                        <Line coords={bottomLine} />
+                        {(this.props.showBottomLine) ? <Line coords={bottomLine} /> : ''}
                         <path
-                            d={`M10,${dateBoxTop} h${this.props.dateBoxWidth} 
+                            d={`M18,${dateBoxTop} h${this.props.dateBoxWidth} 
                                 a3,3 0 0 1 3,3 
                                 v${this.props.dateBoxHeight} 
                                 a3,3 0 0 1 -3,3 
@@ -79,7 +79,7 @@ class TimelineElement extends Component {
                             fill="steelBlue" />
                         <text
                             className="timeline-date"
-                            x={15}
+                            x={20}
                             y={(this.state.height + this.initialState().radius) / 2}
                             fill="white"
                             fontSize={this.props.dateFontSize}>
@@ -98,9 +98,10 @@ class TimelineElement extends Component {
 }
 
 TimelineElement.propTypes = {
-    date: PropTypes.string,
-    title: PropTypes.string,
-    content: PropTypes.string,
+    date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+    showBottomLine: PropTypes.bool.isRequired,
     graphicWidth: PropTypes.number,
     lineLeft: PropTypes.number,
     strokeWidth: PropTypes.number,
