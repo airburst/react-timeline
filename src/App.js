@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import TimelineElement from './TimelineElement';
+import data from '../data/timelineData.json';
 import './App.css';
 
 class App extends Component {
+
   render() {
+    const timeline = data.map((d, i) => {
+      return (
+        <TimelineElement key={i} title={d.title} content={d.body} />
+      )
+    });
+
     return (
-      <div>
-        <TimelineElement
-          title={'The Title'}
-          content={'Some lorem ipsum type stuff'} />
-        <TimelineElement
-          title={'Another Title'}
-          content={'Some more lorem ipsum type stuff'} />
+      <div className="timeline-component">
+        {timeline}
       </div>
     )
   }
