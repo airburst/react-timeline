@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Circle from './Circle';
+import Line from './Line';
 import './TimelineElement.css';
 
 class TimelineElement extends Component {
@@ -14,7 +15,7 @@ class TimelineElement extends Component {
             hover: false,
             radius: 10,
             fill: 'transparent'
-        }
+        };
     }
 
     hoverState() {
@@ -22,60 +23,55 @@ class TimelineElement extends Component {
             hover: true,
             radius: 15,
             fill: 'steelBlue'
-        }
+        };
     }
 
     handleMouseOver = (e) => {
-        this.setState(this.hoverState())
+        this.setState(this.hoverState());
     }
 
     handleMouseOut = (e) => {
-        this.setState(this.initialState())
+        this.setState(this.initialState());
     }
 
     componentDidMount() {
         let { offsetHeight } = this.refs.timeline;
-        this.setState({ height: offsetHeight })
+        this.setState({ height: offsetHeight });
     }
 
     render() {
         const lineLength = (this.state.height / 2) - this.state.radius;
-        const topLine = { x1: 50, y1: 0, x2: 50, y2: lineLength };
-        const bottomLine = { x1: 50, y1: lineLength + (this.state.radius * 2), x2: 50, y2: this.state.height };
+        const topLine = { x1: this.props.lineLeft, y1: 0, x2: this.props.lineLeft, y2: lineLength };
+        const bottomLine = { x1: this.props.lineLeft, y1: lineLength + (this.state.radius * 2), x2: this.props.lineLeft, y2: this.state.height };
+        let timelineClassName = 'timeline-element';
+        if (this.state.hover) { timelineClassName += ' hover'; }
 
         return (
             <div
-                className="timeline-element"
+                className={timelineClassName}
                 ref="timeline"
                 onMouseOver={this.handleMouseOver}
                 onMouseOut={this.handleMouseOut}>
 
-                <div className="timeline">
+                <div className="timeline" width={this.props.graphicWidth}>
                     <svg
                         height={this.state.height}
-                        width={100}
-                        viewBox={`0 0 100 ${this.state.height}`}>
-                        <line
-                            x1={topLine.x1}
-                            y1={topLine.y1}
-                            x2={topLine.x2}
-                            y2={topLine.y2}
-                            strokeWidth={2}
-                            stroke="#ccc" />
+                        width={this.props.graphicWidth}
+                        viewBox={`0 0 ${this.props.graphicWidth} ${this.state.height}`}>
+                        <Line coords={topLine} />
                         <Circle
-                            x={50}
+                            x={this.props.lineLeft}
                             y={this.state.height / 2}
                             r={this.state.radius}
-                            fill={this.state.fill}
-                            stroke="#ccc"
-                            strokeWidth={2} />
-                        <line
-                            x1={bottomLine.x1}
-                            y1={bottomLine.y1}
-                            x2={bottomLine.x2}
-                            y2={bottomLine.y2}
-                            strokeWidth={2}
-                            stroke="#ccc" />
+                            fill={this.state.fill} />
+                        <Line coords={bottomLine} />
+                        <text
+                            x={5}
+                            y={this.state.height / 2} 
+                            fontFamily="Verdana" 
+                            fontSize={12}>
+                            {this.props.date}
+                        </text>
                     </svg>
                 </div>
 
@@ -89,8 +85,18 @@ class TimelineElement extends Component {
 }
 
 TimelineElement.propTypes = {
+    date: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,
+    graphicWidth: PropTypes.number,
+    lineLeft: PropTypes.number,
+    strokeWidth: PropTypes.number
 };
+
+TimelineElement.defaultProps = {
+    graphicWidth: 100,
+    lineLeft: 75,
+    strokeWidth: 2
+}
 
 export default TimelineElement;

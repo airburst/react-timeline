@@ -1,13 +1,16 @@
 [
     {
+        "date": "21 Aug",
         "title": "First Timeline Item",
         "body": "A short note about a thing that happened"
     },
     {
+        "date": "19 Aug",
         "title": "Second Timeline Item",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Eu scelerisque felis imperdiet proin fermentum leo. Integer enim neque volutpat ac tincidunt vitae semper quis lectus. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien. Massa sapien faucibus et molestie ac feugiat sed. Orci a scelerisque purus semper eget duis at. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Cras fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Lacinia quis vel eros donec ac odio tempor orci. Sit amet volutpat consequat mauris nunc congue nisi vitae. Consequat nisl vel pretium lectus quam id leo in vitae. Integer feugiat scelerisque varius morbi enim nunc faucibus. Nullam vehicula ipsum a arcu cursus. Adipiscing elit pellentesque habitant morbi tristique."
     },
     {
+        "date": "12 Jul",
         "title": "Third Timeline Item",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Eu mi bibendum neque egestas congue. Mauris sit amet massa vitae tortor condimentum lacinia quis. Magna fermentum iaculis eu non diam phasellus vestibulum lorem. Faucibus scelerisque eleifend donec pretium vulputate. Interdum varius sit amet mattis vulputate enim nulla aliquet. Et malesuada fames ac turpis egestas integer. Pellentesque habitant morbi tristique senectus et netus et malesuada fames."
     }

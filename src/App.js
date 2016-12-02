@@ -9,9 +9,12 @@ class App extends Component {
     const timeline = data.map((d, i) => {
       return (
         <TimelineElement 
-          key={i} 
+          key={i}
+          date={d.date}
           title={d.title} 
-          content={d.body} />
+          content={d.body}
+          graphicWidth={100}
+          lineLeft={75} />
       )
     });
 
