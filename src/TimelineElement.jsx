@@ -34,9 +34,18 @@ class TimelineElement extends Component {
         this.setState(this.initialState());
     }
 
-    componentDidMount() {
+    updateDimensions = () => {
         let { offsetHeight } = this.refs.timeline;
-        this.setState({ height: offsetHeight });
+        this.setState({ height: (offsetHeight + this.props.elementMargin * 2) });
+    }
+
+    componentDidMount() {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
     }
 
     render() {
@@ -50,7 +59,6 @@ class TimelineElement extends Component {
         return (
             <div
                 className={timelineClassName}
-                ref="timeline"
                 onMouseOver={this.handleMouseOver}
                 onMouseOut={this.handleMouseOut}>
 
@@ -89,7 +97,7 @@ class TimelineElement extends Component {
                 </div>
 
                 <div className="arrow-left"></div>
-                <div className="timeline-content">
+                <div className="timeline-content" ref="timeline">
                     <h4 className="timeline-content-title">{this.props.title}</h4>
                     <p className="timeline-content-body">{this.props.content}</p>
                 </div>
@@ -108,7 +116,8 @@ TimelineElement.propTypes = {
     strokeWidth: PropTypes.number,
     dateBoxHeight: PropTypes.number,
     dateBoxWidth: PropTypes.number,
-    dateFontSize: PropTypes.number
+    dateFontSize: PropTypes.number,
+    elementMargin: PropTypes.number
 };
 
 TimelineElement.defaultProps = {
@@ -117,7 +126,8 @@ TimelineElement.defaultProps = {
     strokeWidth: 2,
     dateBoxHeight: 20,
     dateBoxWidth: 50,
-    dateFontSize: 12
+    dateFontSize: 12,
+    elementMargin: 5
 }
 
 export default TimelineElement;

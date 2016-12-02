@@ -11,7 +11,7 @@ class App extends Component {
 
         <div className="left">
           <div className="left-content">
-            <img src="https://placehold.it/600x400" />
+            <img src="https://placehold.it/600x400" alt="profile" />
           </div>
         </div>
 
@@ -23,7 +23,7 @@ class App extends Component {
               linePosition={104} />
           </div>
         </div>
-        
+
       </div>
     )
   }
