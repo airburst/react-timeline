@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Circle from './Circle';
 import Line from './Line';
-import './TimelineElement.css';
+import './Timeline.css';
 
 class TimelineElement extends Component {
 
@@ -88,6 +88,7 @@ class TimelineElement extends Component {
                     </svg>
                 </div>
 
+                <div className="arrow-left"></div>
                 <div className="timeline-content">
                     <h4 className="timeline-content-title">{this.props.title}</h4>
                     <p className="timeline-content-body">{this.props.content}</p>
