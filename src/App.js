@@ -13,8 +13,8 @@ class App extends Component {
           date={d.date}
           title={d.title} 
           content={d.body}
-          graphicWidth={100}
-          lineLeft={75} />
+          graphicWidth={120}
+          lineLeft={100} />
       )
     });
 

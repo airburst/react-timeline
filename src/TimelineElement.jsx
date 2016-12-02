@@ -43,6 +43,7 @@ class TimelineElement extends Component {
         const lineLength = (this.state.height / 2) - this.state.radius;
         const topLine = { x1: this.props.lineLeft, y1: 0, x2: this.props.lineLeft, y2: lineLength };
         const bottomLine = { x1: this.props.lineLeft, y1: lineLength + (this.state.radius * 2), x2: this.props.lineLeft, y2: this.state.height };
+        const dateBoxTop = ((this.state.height - this.props.dateBoxHeight) / 2) - 3;    /* The 3px is magic.. */
         let timelineClassName = 'timeline-element';
         if (this.state.hover) { timelineClassName += ' hover'; }
 
@@ -65,11 +66,23 @@ class TimelineElement extends Component {
                             r={this.state.radius}
                             fill={this.state.fill} />
                         <Line coords={bottomLine} />
+                        <path
+                            d={`M10,${dateBoxTop} h${this.props.dateBoxWidth} 
+                                a3,3 0 0 1 3,3 
+                                v${this.props.dateBoxHeight} 
+                                a3,3 0 0 1 -3,3 
+                                h-${this.props.dateBoxWidth} 
+                                a3,3 0 0 1 -3,-3 
+                                v-${this.props.dateBoxHeight} 
+                                a3,3 0 0 1 3,-3 z`
+                            }
+                            fill="steelBlue" />
                         <text
-                            x={5}
-                            y={this.state.height / 2} 
-                            fontFamily="Verdana" 
-                            fontSize={12}>
+                            className="timeline-date"
+                            x={15}
+                            y={(this.state.height + this.initialState().radius) / 2}
+                            fill="white"
+                            fontSize={this.props.dateFontSize}>
                             {this.props.date}
                         </text>
                     </svg>
@@ -90,13 +103,19 @@ TimelineElement.propTypes = {
     content: PropTypes.string,
     graphicWidth: PropTypes.number,
     lineLeft: PropTypes.number,
-    strokeWidth: PropTypes.number
+    strokeWidth: PropTypes.number,
+    dateBoxHeight: PropTypes.number,
+    dateBoxWidth: PropTypes.number,
+    dateFontSize: PropTypes.number
 };
 
 TimelineElement.defaultProps = {
     graphicWidth: 100,
     lineLeft: 75,
-    strokeWidth: 2
+    strokeWidth: 2,
+    dateBoxHeight: 20,
+    dateBoxWidth: 50,
+    dateFontSize: 12
 }
 
 export default TimelineElement;
