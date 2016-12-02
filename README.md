@@ -4,7 +4,7 @@ Vertical timeline component.  Displays a column of events, each with a date, tit
 
 Each event appears inside a callout container, alongside a vertical line with circles at each event.
 
-## Using the Compoenent
+## Using the Component
 
 Import the Timeline component and use in your app as follows:
 
