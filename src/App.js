@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timeline from './Timeline';
+import Timeline from './Timeline/Timeline';
 import data from '../data/timelineData.json';
 import './App.css';
 
